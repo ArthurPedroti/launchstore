@@ -3,20 +3,20 @@
 </h1>
 
 <h3 align="center" >
-  A gym system to manage instructors and members
+  An ecommerce based in pure javascript and pure SQL queries
 </h3>
 
 <p align="center">
-  <img alt="Languagues" src="https://img.shields.io/github/languages/count/ArthurPedroti/foodfy">
-  <img alt="Top Languague" src="https://img.shields.io/github/languages/top/ArthurPedroti/foodfy">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/ArthurPedroti/foodfy">
-  <a href="https://github.com/ArthurPedroti/foodfy/commits/master">
-    <img alt="Last commit date" src="https://img.shields.io/github/last-commit/ArthurPedroti/foodfy">
+  <img alt="Languagues" src="https://img.shields.io/github/languages/count/ArthurPedroti/launchstore">
+  <img alt="Top Languague" src="https://img.shields.io/github/languages/top/ArthurPedroti/launchstore">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/ArthurPedroti/launchstore">
+  <a href="https://github.com/ArthurPedroti/launchstore/commits/master">
+    <img alt="Last commit date" src="https://img.shields.io/github/last-commit/ArthurPedroti/launchstore">
   </a>
-   <a href="https://github.com/ArthurPedroti/foodfy/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/ArthurPedroti/foodfy">
+   <a href="https://github.com/ArthurPedroti/launchstore/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/ArthurPedroti/launchstore">
   </a>
-  <img alt="License" src="https://img.shields.io/github/license/ArthurPedroti/foodfy">
+  <img alt="License" src="https://img.shields.io/github/license/ArthurPedroti/launchstore">
 </p>
 <p align="center">
 
@@ -48,7 +48,7 @@
 
 ## :rocket: Environment
 
-- **https://atp-gym-manager.herokuapp.com/**
+- **https://atp-launchstore.herokuapp.com/**
 
 ## :computer: Languages
 
@@ -61,6 +61,7 @@
 - **Only Pure Languages :wink:**
 
 ### devDependencies
+
 - **Only Pure Languages :wink:**
 
 ## :memo: License
