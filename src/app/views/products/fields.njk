@@ -1,0 +1,68 @@
+<div class="item">
+  <div>Categoria</div>
+  <div>
+    <select name="category_id">
+      {% for category in categories %}
+        <!-- eslint-disable -->
+        <option value="{{category.id}}" {% if product.category_id == category.id %}selected{%endif%}>
+          {{category.name}}
+        </option>   
+        <!-- eslint-enable -->
+      {% endfor %}
+    </select>
+  </div>
+</div>
+
+<div class="item">
+  <div>Título</div>
+  <div>
+    <input type="text" name="name" placeholder="Digite o título do anúncio" value="{{ product.name }}">
+  </div>
+</div>
+
+<div class="item">
+  <div>Descrição</div>
+  <div>
+    <textarea name="description">{{product.description}}</textarea>
+  </div>
+</div>
+
+{# Campo de foto #}
+
+<div class="item">
+  <div>Preço</div>
+  <div>
+    <input 
+      type="text" 
+      name="price" 
+      placeholder="Preço do produto" 
+      value="{{ product.price }}" 
+      onKeydown="Mask.apply(this, 'formatBRL')">
+  </div>
+  {% if product.old_price %}
+    <input type="hidden" name="old_price" value={{product.old_price}}>
+  {% endif %}
+</div>
+
+<div class="item">
+  <div>Quantidade</div>
+  <div>
+    <input type="number" name="quantity" placeholder="Estoque disponível" value="{{ product.quantity }}">
+  </div>
+</div>
+
+{% if (product.status == '1') or (product.status == '0') %}
+<div class="item">
+  <div>Disponível</div>
+  <div>
+    <span>
+      <input type="radio" name="status" value="1" {% if product.status == '1' %} checked="checked" {% endif %}>
+      Sim
+    </span>
+    <span>
+      <input type="radio" name="status" value="0" {% if product.status == '0' %} checked="checked" {% endif %}>
+      Não
+    </span>
+  </div>
+</div>
+{% endif %}

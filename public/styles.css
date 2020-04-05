@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
+
+:root {
+  --primary-color: #fd951f;
+  --secondary-color: #1f83fd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  border: none;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+
+  background-color: #f9f9f9;
+}
+
+header,
+footer {
+  background-color: black;
+  color: white;
+
+  width: 100%;
+  padding: 32px 0;
+
+  text-align: center;
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+
+  display: block;
+  margin: 16px 0;
+  padding: 12px 16px;
+
+  width: 100%;
+  border-radius: 4px;
+
+  /* to put this button to down */
+  align-self: end;
+
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  background-color: #d7780b;
+}
+
+.button.edit {
+  background-color: var(--secondary-color);
+}
+
+.button.delete {
+  background-color: lightgray;
+}
+
+.button.edit:hover {
+  background-color: #065ac1;
+}
+
+.button.delete:hover {
+  background-color: rgb(223, 62, 62);
+}
+
+/* HEADER */
+
+header .container {
+  display: grid;
+  grid-template-columns: 220px auto 280px;
+  align-items: center;
+  grid-gap: 24px;
+}
+
+header .container a {
+  justify-self: start;
+}
+
+.logo h1 {
+  color: white;
+  font-size: 36px;
+  line-height: 46px;
+}
+
+.logo h2 {
+  color: var(--primary-color);
+  font-size: 14px;
+  list-style: 16px;
+  letter-spacing: 2px;
+}
+
+/* HEADER SEARCH */
+
+.search input {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+/* PRIMARY MENU */
+
+nav.primary ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav.primary ul li a {
+  display: flex;
+  align-items: center;
+
+  color: white;
+  transition: 200ms;
+}
+
+nav.primary ul li a:hover {
+  color: var(--primary-color);
+}
+
+nav.primary ul li a i {
+  margin-right: 8px;
+}
+
+/* PRODUCTS FORM */
+
+section.form {
+  background-color: #fff;
+
+  padding: 32px 24px;
+  margin: 32px auto;
+
+  box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, 0.9);
+  border: 1px solid #efefef;
+  border-radius: 4px;
+
+  max-width: 700px;
+  width: 90%;
+}
+
+section.form .header h3 {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+form .fieds {
+  margin-bottom: 64px;
+}
+
+form .item {
+  margin-bottom: 16px;
+}
+
+form .item > div:nth-child(1) {
+  color: #777;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+
+  margin-bottom: 8px;
+}
+
+form .item input[type="text"],
+form .item input[type="number"],
+form .item textarea,
+form .item select {
+  width: 100%;
+
+  padding: 8px 16px;
+  box-shadow: 2px 2px 2px -4px rgba(63, 63, 63, 0.9);
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+form .item select {
+  /* allow select contumizating */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* came back icon */
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+
+.form .item textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+form .item span {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  border-radius: 16px;
+  color: white;
+  margin-right: 4px;
+  margin-top: 8px;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+input[type="radio"] {
+  margin-right: 2px;
+  vertical-align: middle;
+}
