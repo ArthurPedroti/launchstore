@@ -81,14 +81,13 @@ module.exports = {
       id,
     ]);
     const products = results.rows;
-    console.log(products);
 
     //pick all images
     const allFilesPromise = products.map((product) =>
       Product.files(product.id)
     );
     let promiseResults = await Promise.all(allFilesPromise);
-    console.log(promiseResults);
+
     //remove user
     await db.query("DELETE FROM users WHERE id = $1", [id]);
 
