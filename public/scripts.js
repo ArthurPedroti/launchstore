@@ -12,6 +12,52 @@ const Mask = {
       currency: "BRL",
     }).format(value / 100);
   },
+  cpfCnpj(value) {
+    value = value.replace(/\D/g, "");
+
+    if (value.length > 14) value = value.slice(0, -1);
+
+    //check if is cpf or cnpj
+    if (value.length > 11) {
+      //cjnp - 11.222.333/4444-55
+      //initial value = 11222333444455
+
+      //11.222333444455 = 2 digits in a row
+      value = value.replace(/(\d{2})(\d)/, "$1.$2");
+
+      //11.222.333444455 = 3 digits in a row
+      value = value.replace(/(\d{3})(\d)/, "$1.$2");
+
+      //11.222.333/444455 = 3 digits in a row
+      value = value.replace(/(\d{3})(\d)/, "$1/$2");
+
+      //11.222.333/4444-55 = 4 digits in a row
+      value = value.replace(/(\d{4})(\d)/, "$1-$2");
+    } else {
+      //cpf 111.222.333-44
+
+      //111.22233344 = 3 digits in a row
+      value = value.replace(/(\d{3})(\d)/, "$1.$2");
+
+      //111.222.33344 = 3 digits in a row
+      value = value.replace(/(\d{3})(\d)/, "$1.$2");
+
+      //111.222.333-44 = 3 digits in a row
+      value = value.replace(/(\d{3})(\d)/, "$1-$2");
+    }
+
+    return value;
+  },
+  cep(value) {
+    value = value.replace(/\D/g, "");
+
+    if (value.length > 8) value = value.slice(0, -1);
+
+    //29216-080 = 5 digits in a row
+    value = value.replace(/(\d{5})(\d)/, "$1-$2");
+
+    return value;
+  },
 };
 
 const PhotosUpload = {
@@ -156,20 +202,63 @@ const Lightbox = {
   },
 };
 
-// function funcao(data, input) {
-//   setTimeout(function () {
-//     data = data * 2;
-//     data = data + input;
-//   }, 1);
-// }
+const Validate = {
+  apply(input, func) {
+    Validate.clearErrors(input);
 
-// async function test() {
-//   let result;
-//   result =
-//   new Promise(funcao(5, 0));
-// }
+    let results = Validate[func](input.value);
+    input.value = results.value;
 
-// test();
-// result = funcao(5, 0); // retorna 10
-// result = funcao(12, result); // retorna 34
-// result = funcao(2, result); // retorna 38
+    if (results.error) Validate.displayError(input, results.error);
+  },
+  displayError(input, error) {
+    const div = document.createElement("div");
+    div.classList.add("error");
+    div.innerHTML = error;
+    input.parentNode.appendChild(div);
+    input.focus();
+  },
+  isEmail(value) {
+    let error = null;
+    const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (!value.match(mailFormat)) error = "Email inválido";
+
+    return {
+      error,
+      value,
+    };
+  },
+  clearErrors(input) {
+    const errorDiv = input.parentNode.querySelector(".error");
+    if (errorDiv) errorDiv.remove();
+  },
+  isCpfCnpj(value) {
+    let error = null;
+    const clearValues = value.replace(/\D/g, "");
+
+    if (clearValues.length > 11 && clearValues.length !== 14) {
+      error = "CNPJ incorreto";
+    } else if (clearValues.length < 12 && clearValues.length !== 11) {
+      error = "CPF incorreto";
+    }
+
+    return {
+      error,
+      value,
+    };
+  },
+  isCep(value) {
+    let error = null;
+    const clearValues = value.replace(/\D/g, "");
+
+    if (clearValues.length !== 8) {
+      error = "CEP incorreto";
+    }
+
+    return {
+      error,
+      value,
+    };
+  },
+};
