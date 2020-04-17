@@ -19,11 +19,11 @@ module.exports = {
         params.category = category;
       }
 
-      results = await Product.search(params);
+      let products = await Product.search(params);
 
       async function getImage(productId) {
-        results = await Product.files(productId);
-        const files = results.rows.map(
+        let files = await Product.files(productId);
+        files = files.map(
           (file) =>
             `${req.protocol}://${req.headers.host}${file.path.replace(
               "public",
@@ -33,14 +33,14 @@ module.exports = {
         return files[0];
       }
 
-      const productsPromise = results.rows.map(async (product) => {
+      const productsPromise = products.map(async (product) => {
         product.img = await getImage(product.id);
         product.old_price = formatPrice(product.old_price);
         product.price = formatPrice(product.price);
         return product;
       });
 
-      const products = await Promise.all(productsPromise);
+      products = await Promise.all(productsPromise);
 
       const search = {
         term: req.query.filter,
