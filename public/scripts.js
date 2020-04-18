@@ -261,4 +261,22 @@ const Validate = {
       value,
     };
   },
+  allFields(e) {
+    const items = document.querySelectorAll(
+      ".item input, .item select, .item textarea"
+    );
+
+    for (item of items) {
+      if (item.value == "") {
+        const message = document.createElement("div");
+        message.classList.add("messages");
+        message.classList.add("error");
+        message.style.position = "fixed";
+        message.innerHTML = "Todos os campos são obrigatórios.";
+        document.querySelector("body").append(message);
+
+        e.preventDefault();
+      }
+    }
+  },
 };

@@ -3,6 +3,7 @@ const { unlinkSync } = require("fs");
 
 const User = require("../models/User");
 const Product = require("../models/Product");
+const LoadProductService = require("../services/LoadProductService");
 
 const { formatCep, formatCpfCnpj } = require("../../lib/utils");
 
@@ -90,7 +91,7 @@ module.exports = {
 
       //remove images form public
       promiseResults.map((results) => {
-        results.rows.map((file) => {
+        files.map((file) => {
           try {
             unlinkSync(file.path);
           } catch (err) {
@@ -108,5 +109,12 @@ module.exports = {
         error: "Erro ao tentar deletar a sua conta",
       });
     }
+  },
+  async ads(req, res) {
+    const products = await LoadProductService.load("products", {
+      where: { user_id: req.session.userId },
+    });
+
+    return res.render("user/ads", { products });
   },
 };

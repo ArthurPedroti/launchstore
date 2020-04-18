@@ -1,0 +1,80 @@
+/* user register */
+.user-register,
+.users-dashboard {
+  max-width: 500px;
+}
+
+.users-ads {
+  max-width: 700px;
+}
+
+.users-ads .items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 32px;
+
+  padding: 16px 0;
+}
+
+.users-ads .item {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  grid-gap: 16px;
+
+  align-items: start;
+
+  color: #444;
+}
+
+.users-ads .item .image img {
+  width: 100%;
+  height: 120px;
+}
+
+.users-ads .item img {
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 4px -4px black;
+
+  object-fit: cover;
+}
+
+.users-ads .info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.users-ads .info {
+  font-size: 18px;
+  font-weight: normal;
+  color: rgb(74, 74, 74);
+}
+
+.users-ads .info .price {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(74, 74, 74);
+  margin-bottom: 4px;
+}
+
+.users-ads .info .published {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(74, 74, 74);
+}
+
+.users-ads .info .actions {
+  display: flex;
+  margin-top: auto;
+}
+
+.users-ads .info .actions a {
+  margin-right: 16px;
+  color: var(--primary-color);
+}
+
+.users-ads .info .actions a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
