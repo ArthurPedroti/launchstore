@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Gym Manager" src="./public/assets/readme-logo.PNG"  width="400px" style="border-radius:16px;"/>
+    <img alt="Gym Manager" src="./public/assets/readme-logo.PNG"  width="600px" style="border-radius:16px;"/>
 </h1>
 
 <h3 align="center" >
@@ -58,16 +58,27 @@
 
 ## :books: Technologies
 
+- **bcryptjs**: ^2.4.3
+- **connect-pg-simple**: ^6.1.0
 - **dotenv**: ^8.2.0
 - **express**: ^4.17.1
+- **express-session**: ^1.17.0
+- **faker**: ^4.1.0
 - **intl**: ^1.2.5
 - **method-override**: ^3.0.0
+- **multer**: ^1.4.2
+- **nodemailer**: ^6.4.6
 - **nunjucks**: ^3.2.0
 - **pg**: ^8.0.0
 
 ### devDependencies
 
+- **@commitlint/cli**: ^8.3.5
+- **@commitlint/config-conventional**: ^8.3.4
 - **browser-sync**: ^2.26.7
+- **commitizen**: ^4.0.4
+- **cz-conventional-changelog**: 3.1.0
+- **husky**: ^4.2.5
 - **nodemon**: ^2.0.2
 - **npm-run-all**: ^4.1.5
 
